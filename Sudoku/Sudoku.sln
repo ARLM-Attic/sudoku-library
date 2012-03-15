@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 11
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoku", "ClassLibrary1\Sudoku.csproj", "{E27CC122-8622-473F-8DBC-857F92D2514B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoku", "SudokuLibrary\Sudoku.csproj", "{E27CC122-8622-473F-8DBC-857F92D2514B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{9E58511A-9DA1-4D7A-8A6D-B7AB8E5C9F22}"
 EndProject

@@ -51,7 +51,7 @@
     <Compile Include="SudokuGroupUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Sudoku.csproj">
+    <ProjectReference Include="..\SudokuLibrary\Sudoku.csproj">
       <Project>{e27cc122-8622-473f-8dbc-857f92d2514b}</Project>
       <Name>Sudoku</Name>
     </ProjectReference>
