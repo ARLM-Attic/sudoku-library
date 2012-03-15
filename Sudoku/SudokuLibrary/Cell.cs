@@ -34,7 +34,6 @@ namespace SudokuLibrary
             set { mSqr = value; }
         }
 
-
         public int Value
         {
             get
@@ -56,7 +55,7 @@ namespace SudokuLibrary
         /// </summary>
         /// <param name="value"></param>
         /// Throws Exception
-        public void SetValue(int value)
+        public void Solve(int value)
         {
             if (value > 9 || value < 1)
             {
@@ -66,32 +65,38 @@ namespace SudokuLibrary
             {
                 throw new Exception("Cell:SetValue value is already set");
             }
+            if (!CanBeValue(value))
+            {
+                throw new Exception("Cell:SetValue value is not acceptable for this cell");
+            }
             mValue = value;
             mIsSolved = true;
-            mValueMap[value] = true;
-            for(int i=0; i<10; i++)
+            mRow.AddSolvedValue(value);
+            mCol.AddSolvedValue(value);
+            mSqr.AddSolvedValue(value);
+            for(int i=1; i<10; i++)
             {
                 if(i != value)
                 {
-                    mValueMap[i] = false;
+                    RemovePossibleValue(i);
                 }
             }
+            
+        }
+
+        private void RemovePossibleValue(int value)
+        {
+            mValueMap[value - 1] = false;
         }
 
         public bool CanBeValue(int value)
         {
-            return mValueMap[value];
-        }
-
-        public Cell(int value)
-        {
-            this.mValueMap = new bool[10];
-            SetValue(value);
+            return mValueMap[value-1];
         }
 
         public Cell()
         {
-            this.mValueMap = new bool[10];
+            this.mValueMap = new bool[] { true, true, true, true, true, true, true, true, true };
         }
     }
 }

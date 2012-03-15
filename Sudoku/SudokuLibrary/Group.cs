@@ -9,12 +9,36 @@ namespace SudokuLibrary
     public class Group
     {
         private bool[] solvedValues;
-        private List<Cell> cells;
+        private List<Cell> mCells;
+        public List<Cell> Cells
+        {
+            get
+            {
+                return mCells;
+            }
+        }
+
+
+        private int mIndex;
+        public int Index
+        {
+            get
+            {
+                return mIndex;
+            }
+        }
 
         public Group()
         {
             solvedValues = new bool[9];
-            cells = new List<Cell>();
+            mCells = new List<Cell>();
+        }
+
+        public Group(int index)
+        {
+            mIndex = index;
+            solvedValues = new bool[9];
+            mCells = new List<Cell>();
         }
 
         public bool IsValueSolved(int value)
@@ -26,7 +50,7 @@ namespace SudokuLibrary
             return solvedValues[value-1];
         }
 
-        private void AddSolvedValue(int value)
+        public void AddSolvedValue(int value)
         {
             solvedValues[value - 1] = true;
         }
@@ -35,14 +59,14 @@ namespace SudokuLibrary
         {
             if (cell.IsSolved)
             {
-                AddSolvedValue(cell.Value);
+                throw new Exception("Group:Add the cell is solved before it should be");
             }
-            cells.Add(cell);
+            mCells.Add(cell);
         }
 
         public Cell Get(int index)
         {
-            return cells[index];
+            return mCells[index];
         }
     }
 }

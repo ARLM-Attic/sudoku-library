@@ -49,6 +49,7 @@
     <Compile Include="SudokuCellUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SudokuGroupUnitTests.cs" />
+    <Compile Include="SudokuPuzzleUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SudokuLibrary\Sudoku.csproj">
