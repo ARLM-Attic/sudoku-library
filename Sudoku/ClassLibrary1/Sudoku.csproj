@@ -7,8 +7,8 @@
     <ProjectGuid>{E27CC122-8622-473F-8DBC-857F92D2514B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Campbel.Sudoku</RootNamespace>
-    <AssemblyName>Sudoku</AssemblyName>
+    <RootNamespace>SudokuLibrary</RootNamespace>
+    <AssemblyName>SudokuLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Campbel.Sudoku
+namespace SudokuLibrary
 {
     public class Group
     {

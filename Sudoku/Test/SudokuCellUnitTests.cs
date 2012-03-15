@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Campbel.Sudoku;
+using SudokuLibrary;
 
-namespace Campbel.Sudoku.Test
+namespace SudokuLibrary.Test
 {
     [TestClass]
     public class SudokuCellUnitTests

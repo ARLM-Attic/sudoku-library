@@ -6,7 +6,7 @@
     <ProjectGuid>{9E58511A-9DA1-4D7A-8A6D-B7AB8E5C9F22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Campbel.Sudoku.Test</RootNamespace>
+    <RootNamespace>SudokuLibrary.Test</RootNamespace>
     <AssemblyName>Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
