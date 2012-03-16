@@ -53,6 +53,13 @@ namespace SudokuLibrary
         public void AddSolvedValue(int value)
         {
             solvedValues[value - 1] = true;
+            foreach (Cell cell in mCells)
+            {
+                if (!cell.IsSolved)
+                {
+                    cell.RemovePossibleValue(value);
+                }
+            }
         }
 
         public void Add(Cell cell)

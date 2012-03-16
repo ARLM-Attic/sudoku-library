@@ -11,7 +11,9 @@ namespace SudokuLibrary
         private bool[] mValueMap;
         private int mValue;
         private bool mIsSolved;
+        private int mNumPossibleValues = 9;
 
+        private Puzzle mPuzzle;
         private Group mRow;
         private Group mCol;
         private Group mSqr;
@@ -71,22 +73,43 @@ namespace SudokuLibrary
             }
             mValue = value;
             mIsSolved = true;
-            mRow.AddSolvedValue(value);
-            mCol.AddSolvedValue(value);
-            mSqr.AddSolvedValue(value);
-            for(int i=1; i<10; i++)
+            for(int i=0; i<9; i++)
             {
-                if(i != value)
-                {
-                    RemovePossibleValue(i);
-                }
+                mValueMap[i] = false;
             }
-            
+            mValueMap[value - 1] = true;
         }
 
-        private void RemovePossibleValue(int value)
+        public void UpdateRowColSqr()
         {
-            mValueMap[value - 1] = false;
+            mRow.AddSolvedValue(mValue);
+            mCol.AddSolvedValue(mValue);
+            mSqr.AddSolvedValue(mValue);
+        }
+
+        public void RemovePossibleValue(int value)
+        {
+            if (mValueMap[value - 1])
+            {
+                mNumPossibleValues--;
+                mValueMap[value - 1] = false;
+                if (mNumPossibleValues == 1)
+                {
+                    mPuzzle.Solve(this,GetOnlyPossibleValue());
+                }
+            }
+        }
+
+        private int GetOnlyPossibleValue()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                if (mValueMap[i])
+                {
+                    return i + 1;
+                }
+            }
+            return 0;
         }
 
         public bool CanBeValue(int value)
@@ -94,8 +117,9 @@ namespace SudokuLibrary
             return mValueMap[value-1];
         }
 
-        public Cell()
+        public Cell(Puzzle puzzle)
         {
+            mPuzzle = puzzle;
             this.mValueMap = new bool[] { true, true, true, true, true, true, true, true, true };
         }
     }
