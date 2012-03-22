@@ -20,6 +20,7 @@ namespace SudokuLibrary.Test
             SudokuBoard board = new SudokuBoard(HardPuzzles.HardestSudokusThread_02085);
             SudokuBoard solvedBoard = Sudoku.Solve(board);
             Assert.IsTrue(solvedBoard.IsSolved);
+            Assert.IsTrue(solvedBoard.IsCorrect());
         }
 
         [TestMethod]
@@ -28,6 +29,7 @@ namespace SudokuLibrary.Test
             SudokuBoard board = new SudokuBoard(HardPuzzles.Golden_Nugget);
             SudokuBoard solvedBoard = Sudoku.Solve(board);
             Assert.IsTrue(solvedBoard.IsSolved);
+            Assert.IsTrue(solvedBoard.IsCorrect());
         }
 
         [TestMethod]
@@ -36,6 +38,7 @@ namespace SudokuLibrary.Test
             SudokuBoard board = new SudokuBoard(HardPuzzles.HardestSudokusThread_00245);
             SudokuBoard solvedBoard = Sudoku.Solve(board);
             Assert.IsTrue(solvedBoard.IsSolved);
+            Assert.IsTrue(solvedBoard.IsCorrect());
         }
 
         [TestMethod]
@@ -44,6 +47,7 @@ namespace SudokuLibrary.Test
             SudokuBoard board = new SudokuBoard(HardPuzzles.HardestSudokusThread_01418);
             SudokuBoard solvedBoard = Sudoku.Solve(board);
             Assert.IsTrue(solvedBoard.IsSolved);
+            Assert.IsTrue(solvedBoard.IsCorrect());
         }
     }
 }

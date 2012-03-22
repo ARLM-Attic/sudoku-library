@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SudokuLibrary.RecursiveBruteForce
+namespace SudokuLibrary
 {
     public class SudokuBoard
     {
@@ -67,6 +67,56 @@ namespace SudokuLibrary.RecursiveBruteForce
 
                 return true;
             }
+        }
+
+        public bool IsCorrect()
+        {
+            // Rows values should add to the checksum
+            int checkSum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9;
+            
+            // Check Rows
+            for (int row = 0; row < 9; row++)
+            {
+                int total = 0;
+                for (int col = 0; col < 9; col++)
+                {
+                    total += Cell[col + row * 9];
+                }
+                if (total != checkSum)
+                    return false;
+            }
+
+            // Check Columns
+            for (int col = 0; col < 9; col++)
+            {
+                int total = 0;
+                for (int row = 0; row < 9; row++)
+                {
+                    total += Cell[col + row * 9];
+                }
+                if (total != checkSum)
+                    return false;
+            }
+
+            // Check Squares
+            for (int rowStart = 0; rowStart < 9; rowStart+=3)
+            {
+                for (int colStart = 0; colStart < 9; colStart+=3)
+                {
+                    int total = 0;
+                    for (int row = rowStart; row < rowStart + 3; row++)
+                    {
+                        for (int col = colStart; col < colStart + 3; col++)
+                        {
+                            total += Cell[col + row * 9];
+                        }
+                    }
+                    if(total != checkSum)
+                        return false;
+                }
+            }
+
+            return true;
         }
     }
 }
