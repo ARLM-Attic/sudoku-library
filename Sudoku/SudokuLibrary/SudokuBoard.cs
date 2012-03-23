@@ -72,7 +72,7 @@ namespace SudokuLibrary
         public bool IsCorrect()
         {
             // Rows values should add to the checksum
-            int checkSum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9;
+            int checkSum = 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81;
             
             // Check Rows
             for (int row = 0; row < 9; row++)
@@ -80,7 +80,7 @@ namespace SudokuLibrary
                 int total = 0;
                 for (int col = 0; col < 9; col++)
                 {
-                    total += Cell[col + row * 9];
+                    total += Cell[col + row * 9] * Cell[col + row * 9];
                 }
                 if (total != checkSum)
                     return false;
@@ -92,7 +92,7 @@ namespace SudokuLibrary
                 int total = 0;
                 for (int row = 0; row < 9; row++)
                 {
-                    total += Cell[col + row * 9];
+                    total += Cell[col + row * 9] * Cell[col + row * 9];
                 }
                 if (total != checkSum)
                     return false;
@@ -108,7 +108,7 @@ namespace SudokuLibrary
                     {
                         for (int col = colStart; col < colStart + 3; col++)
                         {
-                            total += Cell[col + row * 9];
+                            total += Cell[col + row * 9] * Cell[col + row * 9];
                         }
                     }
                     if(total != checkSum)
